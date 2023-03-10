@@ -1,0 +1,399 @@
+@import "variables";
+
+//NASA API key: LTjT5JcnPc5FuMRNXJmOm0N3piWCG77kCg2JjVe6
+
+*,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $primary-font;
+  color: $darkmode-primary-font-color;
+  transition: 0.3s;
+  background-image: url(img/phil-botha-a0TJ3hy-UD8-unsplash.jpg);
+  background-size: cover;
+}
+
+p {
+  font-size: $p-mobile;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+//Style för header
+.main-header {
+  // background-color: $darkmode-secondary-BG-color;
+  background: rgb(14,6,25);
+  background: linear-gradient(0deg, rgba(14,6,25,0) 0%, rgba(14,6,25,1) 82%);
+  width: 100vw;
+  margin-bottom: 4rem;
+  .content-header {
+    margin: auto;
+    max-width: 1440px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left_box {
+      flex: 0 0 240px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @media (min-width: $viewport-tablet) {
+        flex: 0 0 290px;
+      }
+      
+
+      .nasa-logo {
+        width: 40px;
+      }
+      h1 {
+        font-size: 1.2rem;
+        font-style: italic;
+        @media (min-width: $viewport-tablet) {
+          font-size: $h1-mobile;
+        }
+      }
+    }
+
+    //container för switch och text i headern
+    .switch_box {
+      //   display: flex;
+      align-items: center;
+      text-align: right;
+
+      p {
+        font-size: 10px;
+        font-style: italic;
+      }
+
+
+    }
+
+    .switchBtn {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 28px;
+
+      /* Gömmer default HTML checkbox */
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked {
+          //När den är i kryssad
+          // https://www.w3schools.com/cssref/sel_element_pluss.asp
+          + {
+            .slider {
+              //Gör detta med slider som är Lila bg
+              background-color: $switch-bg-lightmode;
+
+              &:before {
+                //Påverkar cirkeln
+                transform: translateX(23px); //hur långt cirkel förflyttar sig
+                background-color: #eeeeee;
+              }
+            }
+          }
+        }
+
+        &:focus {
+          //När den är markerad klickad på
+          + {
+            .slider {
+              //Väljer alla .slider som är placerade direkt efter input
+              //Skugga när man klickar
+              box-shadow: 0 0 2px #222222;
+            }
+          }
+        }
+      }
+    }
+
+    /* slider */
+    .slider {
+      //Lila BG
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $switch-bg-darkmode;
+      border-radius: 34px;
+      transition: 0.4s;
+
+      &:before {
+        //Cirkeln i slider
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 4px;
+        bottom: 4px;
+        background-color: #000000;
+        border-radius: 50%;
+        transition: 0.4s;
+      }
+    }
+  }
+}
+
+.container {
+  margin: auto;
+  height: 100vh;
+  padding: 1rem;
+
+  //Main som håller i heading och form&inputs där vi skriver in namnet
+  .input-box {
+    width: 80%;
+    margin: auto;
+
+    h2 {
+      //   font-size: 200px;
+      margin: 2rem 0rem;
+      text-align: center;
+    }
+
+    form {
+      // flex: 0 0 60%;
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: $viewport-tablet) {
+      }
+
+      label {
+        padding: 1rem;
+        text-align: center;
+        font-size: 12px;
+        // font-weight: 600;
+        font-style: italic;
+      }
+
+      input {
+        // font-size: 1.3rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: none;
+        border-bottom: 4px solid rgb(174, 234, 241);
+        border-radius: 5px;
+        @media (min-width: $viewport-tablet) {
+        }
+
+        &.focusBorder {
+          //Tar bort default css
+          outline: none;
+          border-bottom: 4px solid rgb(49, 19, 199);
+        }
+
+        &::placeholder {
+          color: grey;
+        }
+
+        // Style på knappen
+        &[type="submit"] {
+          border: none;
+          // background-color: rgb(117, 57, 185);
+          background-color: rgb(43, 16, 180);
+          color: $darkmode-primary-font-color;
+          transition: 0.4s;
+          @media (min-width: $viewport-tablet) {
+            width: 250px;
+            margin: auto;
+          }
+
+          // Stylar när knappen är disabled
+          &:disabled {
+            background-color: rgb(61, 61, 61);
+            color: rgb(85, 85, 85);
+            cursor: not-allowed;
+          }
+        }
+      }
+      #aliasName {
+        @media (min-width: $viewport-tablet) {
+          width: 300px;
+          margin: auto;
+          margin-bottom: 1rem;
+        }
+        @media (min-width: $viewport-desktop) {
+          width: 500px;
+          margin: auto;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+
+  .welcome-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 2rem 0rem;
+  }
+
+  .container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    justify-content: center;
+    background-color: #1d1d1d;
+    margin-bottom: 4rem;
+
+    margin: auto;
+    @media (min-width: $viewport-tablet) {
+      width: 90%;
+    }
+    @media (min-width: $viewport-desktop) {
+      width: 75%;
+      flex-wrap: nowrap;
+    }
+
+    .card {
+      flex: 0 0 50%;
+      flex-direction: column;
+      padding: 1rem;
+      @media (min-width: $viewport-tablet) {
+        flex: 0 0 48%;
+      }
+      @media (min-width: $viewport-desktop) {
+        flex: 0 0 24%;
+      }
+      img {
+        margin-bottom: 1rem;
+      }
+
+      h4 {
+        margin-bottom: 6px;
+      }
+
+      p {
+        margin-bottom: 1rem;
+        font-size: 12px;
+        text-align: center;
+        font-weight: 600;
+      }
+    }
+  }
+  
+}
+
+.light {
+  color: $lightmode-primary-font-color;
+  background-color: $lightmode-primary-BG-color;
+  background-image: url(img/ADAMmillerpsss.jpg);
+  background-size: cover;
+  h1 {
+    color: $lightmode-primary-font-color;
+  }
+
+  a {
+    color: $lightmode-primary-font-color;
+  }
+
+  p {
+    color: $lightmode-primary-font-color;
+  }
+
+  .main-header {
+    background: rgb(242,246,247);
+    background: linear-gradient(0deg, rgba(242,246,247,0.19653799019607843) 0%, rgba(204,205,205,0) 100%);
+  }
+
+  .container {
+    color: $lightmode-primary-font-color;
+
+    //Main som håller i heading och form&inputs där vi skriver in namnet
+    .input-box {
+    width: 80%;
+    margin: auto;
+
+      h2 {
+        margin: 2rem 0rem;
+        text-align: center;
+      }
+
+      form {
+        // flex: 0 0 60%;
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: $viewport-tablet) {
+        }
+
+        label {
+          padding: 1rem;
+          text-align: center;
+          font-size: 12px;
+          // font-style: italic;
+        }
+
+        input {
+          // font-size: 1.3rem;
+          padding: 1rem;
+          margin-bottom: 1rem;
+          border: none;
+          border-bottom: 4px solid rgb(174, 234, 241);
+          border-radius: 5px;
+          @media (min-width: $viewport-tablet) {
+          }
+
+          &.focusBorder {
+            //Tar bort default css
+            outline: none;
+            border-bottom: 4px solid rgb(47, 102, 109);
+          }
+
+          &::placeholder {
+            color: grey;
+          }
+
+          // Style på knappen
+          &[type="submit"] {
+            border: none;
+            background-color: rgb(18, 156, 171);
+            color: $darkmode-primary-font-color;
+            transition: 0.4s;
+            @media (min-width: $viewport-tablet) {
+              width: 250px;
+              margin: auto;
+            }
+
+            // Stylar när knappen är disabled
+            &:disabled {
+              background-color: rgb(61, 61, 61);
+              color: rgb(85, 85, 85);
+              cursor: not-allowed;
+            }
+          }
+        }
+        #aliasName {
+          @media (min-width: $viewport-tablet) {
+            width: 300px;
+            margin: auto;
+            margin-bottom: 1rem;
+          }
+          @media (min-width: $viewport-desktop) {
+            width: 500px;
+            margin: auto;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+    .container-cards {
+      background-color: #f6f6f6;
+    }
+    
+  }
+}

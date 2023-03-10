@@ -1,0 +1,41 @@
+//FÄRGER
+
+//Dark mode
+$darkmode-primary-BG-color: #270f4b;
+$darkmode-secondary-BG-color: #0e0619;
+
+//Light mode
+$lightmode-primary-BG-color: #e2e2e2;
+$lightmode-secondary-BG-color: #bcd1d0;
+
+//SWITCH
+//dark mode
+$switch-bg-darkmode: #535ba4;
+//light mode
+$switch-bg-lightmode: #08476b;
+
+//Fonts
+$primary-font: "Inter Tight", sans-serif;
+$heading-font: "Inter Tight", sans-serif;
+
+//Text-färger
+$darkmode-primary-font-color: #fafafa;
+$darkmode-secondary-font-color: #f0f0f0;
+
+$lightmode-primary-font-color: #0f0f0f;
+$lightmode-secondary-font-color: #272626;
+
+//Font-size MOBILE
+
+//h1
+$h1-mobile: 1.5rem;
+
+//p
+$p-mobile: 1rem;
+
+//VIEWPORTS
+//tablet
+$viewport-tablet: 480px;
+
+//desktop
+$viewport-desktop: 1024px;

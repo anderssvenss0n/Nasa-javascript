@@ -1,0 +1,331 @@
+@charset "UTF-8";
+*,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter Tight", sans-serif;
+  color: #fafafa;
+  transition: 0.3s;
+  background-image: url(img/phil-botha-a0TJ3hy-UD8-unsplash.jpg);
+  background-size: cover;
+}
+
+p {
+  font-size: 1rem;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.main-header {
+  background: rgb(14, 6, 25);
+  background: linear-gradient(0deg, rgba(14, 6, 25, 0) 0%, rgb(14, 6, 25) 82%);
+  width: 100vw;
+  margin-bottom: 4rem;
+}
+.main-header .content-header {
+  margin: auto;
+  max-width: 1440px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* slider */
+}
+.main-header .content-header .left_box {
+  flex: 0 0 240px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 480px) {
+  .main-header .content-header .left_box {
+    flex: 0 0 290px;
+  }
+}
+.main-header .content-header .left_box .nasa-logo {
+  width: 40px;
+}
+.main-header .content-header .left_box h1 {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+@media (min-width: 480px) {
+  .main-header .content-header .left_box h1 {
+    font-size: 1.5rem;
+  }
+}
+.main-header .content-header .switch_box {
+  align-items: center;
+  text-align: right;
+}
+.main-header .content-header .switch_box p {
+  font-size: 10px;
+  font-style: italic;
+}
+.main-header .content-header .switchBtn {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  /* Gömmer default HTML checkbox */
+}
+.main-header .content-header .switchBtn input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.main-header .content-header .switchBtn input:checked + .slider {
+  background-color: #08476b;
+}
+.main-header .content-header .switchBtn input:checked + .slider:before {
+  transform: translateX(23px);
+  background-color: #eeeeee;
+}
+.main-header .content-header .switchBtn input:focus + .slider {
+  box-shadow: 0 0 2px #222222;
+}
+.main-header .content-header .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #535ba4;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+.main-header .content-header .slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #000000;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.container {
+  margin: auto;
+  height: 100vh;
+  padding: 1rem;
+}
+.container .input-box {
+  width: 80%;
+  margin: auto;
+}
+.container .input-box h2 {
+  margin: 2rem 0rem;
+  text-align: center;
+}
+.container .input-box form {
+  display: flex;
+  flex-direction: column;
+}
+.container .input-box form label {
+  padding: 1rem;
+  text-align: center;
+  font-size: 12px;
+  font-style: italic;
+}
+.container .input-box form input {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-bottom: 4px solid rgb(174, 234, 241);
+  border-radius: 5px;
+}
+.container .input-box form input.focusBorder {
+  outline: none;
+  border-bottom: 4px solid rgb(49, 19, 199);
+}
+.container .input-box form input::-moz-placeholder {
+  color: grey;
+}
+.container .input-box form input::placeholder {
+  color: grey;
+}
+.container .input-box form input[type=submit] {
+  border: none;
+  background-color: rgb(43, 16, 180);
+  color: #fafafa;
+  transition: 0.4s;
+}
+@media (min-width: 480px) {
+  .container .input-box form input[type=submit] {
+    width: 250px;
+    margin: auto;
+  }
+}
+.container .input-box form input[type=submit]:disabled {
+  background-color: rgb(61, 61, 61);
+  color: rgb(85, 85, 85);
+  cursor: not-allowed;
+}
+@media (min-width: 480px) {
+  .container .input-box form #aliasName {
+    width: 300px;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container .input-box form #aliasName {
+    width: 500px;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+}
+.container .welcome-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0rem;
+}
+.container .container-cards {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  justify-content: center;
+  background-color: #1d1d1d;
+  margin-bottom: 4rem;
+  margin: auto;
+}
+@media (min-width: 480px) {
+  .container .container-cards {
+    width: 90%;
+  }
+}
+@media (min-width: 1024px) {
+  .container .container-cards {
+    width: 75%;
+    flex-wrap: nowrap;
+  }
+}
+.container .container-cards .card {
+  flex: 0 0 50%;
+  flex-direction: column;
+  padding: 1rem;
+}
+@media (min-width: 480px) {
+  .container .container-cards .card {
+    flex: 0 0 48%;
+  }
+}
+@media (min-width: 1024px) {
+  .container .container-cards .card {
+    flex: 0 0 24%;
+  }
+}
+.container .container-cards .card img {
+  margin-bottom: 1rem;
+}
+.container .container-cards .card h4 {
+  margin-bottom: 6px;
+}
+.container .container-cards .card p {
+  margin-bottom: 1rem;
+  font-size: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.light {
+  color: #0f0f0f;
+  background-color: #e2e2e2;
+  background-image: url(img/ADAMmillerpsss.jpg);
+  background-size: cover;
+}
+.light h1 {
+  color: #0f0f0f;
+}
+.light a {
+  color: #0f0f0f;
+}
+.light p {
+  color: #0f0f0f;
+}
+.light .main-header {
+  background: rgb(242, 246, 247);
+  background: linear-gradient(0deg, rgba(242, 246, 247, 0.1965379902) 0%, rgba(204, 205, 205, 0) 100%);
+}
+.light .container {
+  color: #0f0f0f;
+}
+.light .container .input-box {
+  width: 80%;
+  margin: auto;
+}
+.light .container .input-box h2 {
+  margin: 2rem 0rem;
+  text-align: center;
+}
+.light .container .input-box form {
+  display: flex;
+  flex-direction: column;
+}
+.light .container .input-box form label {
+  padding: 1rem;
+  text-align: center;
+  font-size: 12px;
+}
+.light .container .input-box form input {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-bottom: 4px solid rgb(174, 234, 241);
+  border-radius: 5px;
+}
+.light .container .input-box form input.focusBorder {
+  outline: none;
+  border-bottom: 4px solid rgb(47, 102, 109);
+}
+.light .container .input-box form input::-moz-placeholder {
+  color: grey;
+}
+.light .container .input-box form input::placeholder {
+  color: grey;
+}
+.light .container .input-box form input[type=submit] {
+  border: none;
+  background-color: rgb(18, 156, 171);
+  color: #fafafa;
+  transition: 0.4s;
+}
+@media (min-width: 480px) {
+  .light .container .input-box form input[type=submit] {
+    width: 250px;
+    margin: auto;
+  }
+}
+.light .container .input-box form input[type=submit]:disabled {
+  background-color: rgb(61, 61, 61);
+  color: rgb(85, 85, 85);
+  cursor: not-allowed;
+}
+@media (min-width: 480px) {
+  .light .container .input-box form #aliasName {
+    width: 300px;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .light .container .input-box form #aliasName {
+    width: 500px;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+}
+.light .container .container-cards {
+  background-color: #f6f6f6;
+}/*# sourceMappingURL=style.css.map */

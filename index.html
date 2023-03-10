@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nasa Rovers</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="main-header">
+      <nav class="content-header">
+        <div class="left_box">
+          <img class="nasa-logo" src="img/NASA_logo.PNG" alt="" />
+          <h1>NASA MARS ROVERS</h1>
+        </div>
+        <!-- container som håller i p och switch -->
+        <div class="switch_box">
+          <!-- switch -->
+          <label class="switchBtn">
+            <input type="checkbox" id="switchBtn" />
+            <span class="slider round"></span>
+          </label>
+          <p id="textDarkLight">Set light mode</p>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <!-- Här är min header -->
+
+      <!-- container som håller i inputfält plus textfält -->
+
+      <main class="input-box">
+        <h2>Choose your space name</h2>
+
+        <form class="form_content" autocomplete="off">
+          <label for="aliasName">Must be at least 3 characters</label>
+          <input id="aliasName" type="text" placeholder="Space name" />
+
+          <!-- Disabled skriver vi för att man måste skriva in x i fältet för att kunna gå vidare -->
+          <input id="sendBtn" type="submit" onclick disabled />
+        </form>
+      </main>
+
+      <div class="welcome-box"></div>
+
+      <section id="hidden-section" class="container-cards"></section>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
